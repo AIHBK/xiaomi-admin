@@ -1,22 +1,10 @@
 <template>
   <el-main>
-    <el-button type="primary"
-     icon="el-icon-plus"
-     size="mini"
-     @click="addList(true)"
-     >添加
-    </el-button>
-    <el-dialog title="提示" :visible.sync="addDialog" width="30%" center>
-      <el-input clearable type="text" v-model="addArr.name" placeholder="请输入姓名"></el-input>
-      <el-input clearable type="text" v-model="addArr.phone" placeholder="请输入手机号"></el-input>
-      <el-input clearable type="text" v-model="addArr.qq" placeholder="请输入QQ"></el-input>
-      <el-input clearable type="text" v-model="addArr.address" placeholder="请输入地址"></el-input>
-      <span slot="footer" class="dialog-footer">
-        <el-button @click="addDialog = false">取 消</el-button>
-        <el-button type="primary" @click="closeAddDialog(false)">确 定</el-button>
-      </span>
-    </el-dialog>
-    <el-table :data="tempListData" stripe>
+    <!-- <el-button type="primary" icon="el-icon-plus" size="mini" @click="addList(true)" >添加 </el-button> -->
+    <addinfo :tempListData="tempListData">
+    </addinfo>
+    <el-table @selection-change="selectItem" :data="tempListData" stripe>
+      <el-table-column type="selection" width="140"></el-table-column>
       <el-table-column prop="date" label="日期" width="140"></el-table-column>
       <el-table-column prop="name" label="姓名" width="120"></el-table-column>
       <el-table-column prop="phone" label="手机号" width="120"></el-table-column>
@@ -27,45 +15,42 @@
           <el-button size="mini" type="danger" @click="Deletes(scope.row)">删除</el-button>
           <el-button size="mini" type="primary" @click="upData(true,scope.row)">编辑</el-button>
           <el-dialog title="提示" :visible.sync="centerDialogVisible" width="30%" center>
-          <el-input type="text" :value="tempArr.date" v-model="tempArr.date" clearable></el-input>
-          <el-input type="text" :value="tempArr.name" v-model="tempArr.name" clearable></el-input>
-          <el-input type="text" :value="tempArr.phone" v-model="tempArr.phone" clearable></el-input>
-          <el-input type="text" :value="tempArr.qq" v-model="tempArr.qq" clearable></el-input>
-          <el-input type="text" :value="tempArr.address" v-model="tempArr.address" clearable></el-input>
+          <el-input type="text" :value="tempObj.date" v-model="tempObj.date" clearable></el-input>
+          <el-input type="text" :value="tempObj.name" v-model="tempObj.name" clearable></el-input>
+          <el-input type="text" :value="tempObj.phone" v-model="tempObj.phone" clearable></el-input>
+          <el-input type="text" :value="tempObj.qq" v-model="tempObj.qq" clearable></el-input>
+          <el-input type="text" :value="tempObj.address" v-model="tempObj.address" clearable></el-input>
             <span slot="footer" class="dialog-footer">
               <el-button @click="centerDialogVisible = false">取 消</el-button>
-              <el-button type="primary" @click="confirmDate(false,tempArr.id)">确 定</el-button>
+              <el-button type="primary" @click="confirmDate(false,tempObj.id)">确 定</el-button>
             </span>
           </el-dialog>
         </template>
       </el-table-column>
     </el-table>
+    <div style="margin-top: 20px" v-if="tempListData.length>0">
+      <el-button type="danger" size="mini" @click="deleteAll()">删除选中</el-button>
+    </div>
   </el-main>
 </template>
 
 <script>
-import { nanoid } from 'nanoid'
+import addinfo from './HomeMain/addinfo.vue'
 export default {
   name: 'HomeMaon',
-  props: ['listData', 'listDelete', 'listUpData'],
+  props: ['listData'],
+  components: {
+    addinfo
+  },
   data () {
     return {
-      tempArr: {},
-      tempIndex: null,
+      tempObj: {},
+      tempArr: [],
       tempListData: this.listData,
       centerDialogVisible: false,
-      addDialog: false,
       addArrState: false,
-      addArr: {
-        id: '',
-        name: '',
-        phone: '',
-        qq: '',
-        address: ''
-      }
+      selectItemValLength: null
     }
-  },
-  computed: {
   },
   methods: {
     Deletes (deleteId) {
@@ -81,17 +66,17 @@ export default {
         this.tempListData = this.tempListData.filter((val) => {
           return val.id !== deleteId.id
         })
-        this.listDelete(deleteId.id)
       }).catch(() => {
         this.$message({
           type: 'info',
           message: '已取消删除'
         })
+        console.log(deleteId)
       })
     },
     upData (Dialog, obj) {
       this.centerDialogVisible = Dialog
-      this.tempArr = JSON.parse(JSON.stringify(obj))
+      this.tempObj = JSON.parse(JSON.stringify(obj))
     },
     confirmDate (Dialog, getId) {
       this.$confirm('确认修改该信息吗?', '提示', {
@@ -104,10 +89,9 @@ export default {
           message: '修改成功!'
         })
         this.tempListData[this.tempListData.findIndex((val) => {
-          return val.id === this.tempArr.id
-        })] = this.tempArr
+          return val.id === this.tempObj.id
+        })] = this.tempObj
         this.tempListData = JSON.parse(JSON.stringify(this.tempListData))
-        this.listUpData(this.tempArr)
         this.centerDialogVisible = Dialog
       }).catch(() => {
         this.$message({
@@ -117,40 +101,44 @@ export default {
         this.centerDialogVisible = Dialog
       })
     },
-    addList (Dialog) {
-      this.addDialog = Dialog
-    },
-    addNotNull () {
-      for (var item in this.addArr) {
-        if (this.addArr[item] === '' || this.addArr[item] === null) {
-          this.$message.error('信息不可以为空!')
-          return false
+    // 删除选中
+    selectItem (val) {
+      if (val.length > 0) {
+        for (var i = 0; i < val.length; i++) {
+          val[i].deleteState = true
+        }
+      } else {
+        for (var x = 0; x < this.tempListData.length; x++) {
+          this.tempListData[x].deleteState = false
         }
       }
-      return true
+      this.selectItemValLength = val.length
     },
-    closeAddDialog (closeDialog) {
-      this.$confirm('此操作将添加一条用户信息, 是否继续?', '提示', {
+    deleteAll () {
+      if (this.selectItemValLength <= 0 || this.selectItemValLength == null) {
+        return this.$message({
+          type: 'warning',
+          message: '请先选择!'
+        })
+      }
+      this.$confirm('此操作将删除所用意选中, 是否继续?', '提示', {
         confirmButtonText: '确定',
         cancelButtonText: '取消',
-        type: 'warning'
+        type: 'warning',
+        center: true
       }).then(() => {
-        this.addArr.id = nanoid()
-        this.addArr.date = new Date(new Date()).toLocaleDateString().replaceAll('/', '-')
-        if (this.addNotNull()) {
-          this.$message({
-            type: 'success',
-            message: '添加成功'
-          })
-          this.tempListData.push(JSON.parse(JSON.stringify(this.addArr)))
-        }
-        this.addDialog = closeDialog
+        this.$message({
+          type: 'success',
+          message: '删除成功!'
+        })
+        this.tempListData = this.tempListData.filter((val) => {
+          return val.deleteState !== true
+        })
       }).catch(() => {
         this.$message({
           type: 'info',
-          message: '已取消添加'
+          message: '已取消删除'
         })
-        this.addDialog = closeDialog
       })
     }
   }

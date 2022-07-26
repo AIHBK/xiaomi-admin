@@ -7,8 +7,7 @@
     <div class="userinfo">
       <el-dropdown>
         <el-avatar class="user-img" src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"></el-avatar>
-        <span class="user-message">管理员: {{tempName.getName}}</span>
-        <span class="user-message">{{createDate}}</span>
+        <span class="user-message">管理员: {{tempName}}</span>
       </el-dropdown>
     </div>
   </el-header>
@@ -19,16 +18,7 @@ export default {
   props: ['userName', 'listData'],
   data () {
     return {
-      tempName: JSON.parse(JSON.stringify(this.userName))
-    }
-  },
-  computed: {
-    createDate () {
-      return this.listData.filter((val) => {
-        return val.name === this.tempName.getName
-      })[0].date.substring(0, this.listData.filter((val) => {
-        return val.name === this.tempName.getName
-      })[0].date.indexOf(' '))
+      tempName: JSON.parse(JSON.stringify(this.userName.getName))
     }
   }
 }
@@ -70,7 +60,7 @@ export default {
         display: flex;
       }
       .user-message {
-        width: 100px;
+        width: 150px;
         height: 50px;
         margin: 5px 0;
         text-align: center;

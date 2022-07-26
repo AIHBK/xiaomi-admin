@@ -2,11 +2,11 @@
  <div class="userinfoWrap" :style="{width:fullWidth-1+'px',height:fullHeight-1+'px'}">
    <div class="userinfo">
      <el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
-       <el-form-item label="账号" prop="account">
-         <el-input type="text" v-model="ruleForm.account" @change="getInputName" autocomplete="off"></el-input>
+       <el-form-item prop="loginId">
+         <el-input type="text" v-model="ruleForm.loginId" prefix-icon="iconfont icon-gerenzhongxin1" autocomplete="off"></el-input>
        </el-form-item>
-       <el-form-item label="密码" prop="pass">
-         <el-input type="password" v-model="ruleForm.pass" autocomplete="off"></el-input>
+       <el-form-item prop="loginPass">
+         <el-input type="password" v-model="ruleForm.loginPass" prefix-icon="iconfont icon-mima" autocomplete="off"></el-input>
        </el-form-item>
        <el-form-item>
          <el-button type="primary" @click="submitForm('ruleForm')">提交</el-button>
@@ -17,65 +17,47 @@
 </template>
 
 <script>
+import Vue from 'vue'
+import axios from 'axios'
+import qs from 'qs'
+axios.defaults.baseURL = 'http://127.0.0.1:3000/vue/admin'
+Vue.prototype.$http = axios
 export default {
   name: 'Login',
   props: ['userName'],
   data () {
-    var validatePass = (rule, value, callback) => {
-      if (value === '') {
-        callback(new Error('请输入密码'))
-      } else {
-        if (this.ruleForm.checkPass !== '') {
-          this.$refs.ruleForm.validateField('checkPass')
-        }
-        callback()
-      }
-    }
-    var validatePass2 = (rule, value, callback) => {
-      if (value === '') {
-        callback(new Error('请再次输入密码'))
-      } else if (value !== this.ruleForm.pass) {
-        callback(new Error('两次输入密码不一致!'))
-      } else {
-        callback()
-      }
-    }
     return {
       fullWidth: document.documentElement.clientWidth,
       fullHeight: document.documentElement.clientHeight,
       ruleForm: {
-        pass: '',
-        checkPass: '',
-        account: ''
+        loginId: '',
+        loginPass: ''
       },
       rules: {
-        pass: [{
-          validator: validatePass,
-          trigger: 'blur'
-        }],
-        checkPass: [{
-          validator: validatePass2,
-          trigger: 'blur'
-        }]
+        loginId: [
+          { required: true, message: '请输入用户ID或昵称', trigger: 'blur' },
+          { min: 3, max: 15, message: '长度在 3 到 15 个字符', trigger: 'blur' }
+        ],
+        loginPass: [
+          { required: true, message: '请输入密码', trigger: 'blur' },
+          { min: 6, max: 16, message: '长度在 6 到 16 个字符', trigger: 'blur' }
+        ]
       }
     }
   },
   methods: {
-    getInputName (e) {
-      this.userName.getName = e
-    },
     submitForm (formName) {
-      this.$refs[formName].validate((valid) => {
+      this.$refs[formName].validate(async (valid) => {
         if (valid) {
-          this.$router.replace('/Home')
+          const result = await this.$http.post('/Login', qs.stringify(this.ruleForm))
+          if (result.data.state === 3 && (result.status >= 200 || result.status < 300)) {
+            this.userName.getName = this.ruleForm.loginId
+            this.$router.replace('/Home')
+          }
         } else {
-          console.log('error submit!!')
-          return false
+          console.log('error submit!!', valid)
         }
       })
-    },
-    resetForm (formName) {
-      this.$refs[formName].resetFields()
     }
   }
 }

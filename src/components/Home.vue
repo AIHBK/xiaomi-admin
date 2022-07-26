@@ -1,14 +1,16 @@
 <template>
   <el-container>
     <el-header>
-      <HomeHeader :userName="userName" :listData="listData"></HomeHeader>
+      <HomeHeader
+       :userName="userName"
+       :listData="listData">
+      </HomeHeader>
     </el-header>
     <el-container>
       <HomeAside></HomeAside>
       <HomeMain
         :listData="listData"
-        :listDelete="listDelete"
-        :listUpData="listUpData"
+        :userName="userName"
       ></HomeMain>
     </el-container>
   </el-container>
@@ -25,20 +27,6 @@ export default {
     HomeAside,
     HomeMain
   },
-  methods: {
-    listDelete (Id) {
-      this.listData = this.listData.filter((val) => {
-        return val.id !== Id
-      })
-      console.log(this.listData)
-    },
-    listUpData (upData) {
-      this.listData = this.listData.filter((val) => {
-        return val.id !== upData.id
-      })
-      console.log(this.listData)
-    }
-  },
   data () {
     return {
       listData: [
@@ -48,7 +36,8 @@ export default {
           name: 'admin',
           phone: '17370630783',
           qq: '2226773466',
-          address: '甘肃'
+          address: '甘肃',
+          deleteState: false
         },
         {
           id: '2',
@@ -56,7 +45,8 @@ export default {
           name: '狗',
           phone: '17370630783',
           qq: '2226773466',
-          address: '甘肃'
+          address: '甘肃',
+          deleteState: false
         },
         {
           id: '3',
@@ -64,14 +54,14 @@ export default {
           name: '狗',
           phone: '17370630783',
           qq: '2226773466',
-          address: '甘肃'
+          address: '甘肃',
+          deleteState: false
         }
       ]
     }
   }
 }
 </script>
-
 <style lang="less" scoped="scoped">
   .el-menu{
     min-width: 150px;
