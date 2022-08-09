@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小米商城</title>
+    <link rel="stylesheet" href="../static/css/fonts.css">
+    <link rel="stylesheet" href="../static/css/fonts-color.css">
+    <link rel="stylesheet" href="../static/css/login.css">
+    <link rel="stylesheet" href="../static/css/reset.css">
+    <link rel="icon" href="https://s01.mifile.cn/favicon.ico">
+    <script src="../static/js/jquery-3.6.0.js"></script>
+</head>
+<body>
+    <div id="loginWrap">
+        <div class="login-left-wrap  container">
+            <div></div>
+        </div>
+        <div class="login-right-wrap container">
+            <div class="login-top-wrap">
+                <div class="logo-wrap">
+                    <img src="https://s02.mifile.cn/assets/static/image/logo-mi2.png" alt="加载失败">
+                    <div>小米账号</div>
+                </div>
+                <ul class="user-ul">
+                    <li><a href="">用户协议</a></li>
+                    <li><a href="">隐私政策</a></li>
+                    <li><a href="">帮助中心</a></li>
+                    <li><span></span></li>
+                    <li>
+                        <a href="">中文(简体)</a>
+                        <div></div>
+                    </li>
+                </ul>
+            </div>
+            <div class="login-middle-wrap">
+                <!-- <form action="" method="get"> -->
+                    <div class="toggle-wrap">
+                        <div class="button-login"><input class="input-btn" type="button" value="登录"></div>
+                        <div class="button-signIn"><input class="input-btn" type="button" value="注册"></div>
+                        <div class="qr-code">
+                            <i class="iconfont icon-erweima1"></i>
+                            <span class="popup">扫码登录</span><span class="popup-triangle"></span>
+                        </div>
+                        <span class="triangle"></span>
+                        <div class="bottom-line"></div>
+                    </div>
+                    <div class="log-signIn-wrap">
+                        <div class="log-wrap login">
+                            <div class="id-wrap userInfo user"> 
+                                <label for="userId">邮箱/手机号码/小米ID</label>
+                                <input id="userId" type="text">
+                            </div>
+                            <div class="password-wrap userInfo user">
+                                <label for="userPassword">密码</label>
+                                <input id="userPassword" type="password"><i class="iconfont icon-mimayincang"></i>
+                            </div>
+                            <!-- <div class="agreement-wrap">
+                                <div><input type="checkbox">已阅读并同意小米帐号</div>
+                                <div><a href="">用户协议</a>和<a href="">隐私政策</a></div>
+                            </div> -->
+                            <button id="submitBtn" type="submit">登录</button>
+                            <div class="action-wrap">
+                                <div><a href="">忘记密码?</a></div>
+                                <div><a href="">手机号登录</a></div>
+                            </div>
+                            <div class="other-title">其他方式登录</div>
+                            <div class="other-logo-wrap">
+                                <a href=""><i class="other-font iconfont icon-zhifubao"></i></a>
+                                <a href=""><i class="other-font iconfont icon-weixin1"></i></a>
+                                <a href=""><i class="other-font iconfont icon-QQ"></i></a>
+                                <a href=""><i class="other-font iconfont icon-weibo"></i></a>
+                            </div>
+                        </div>
+                        <div class="log-wrap signIn" style="margin-left: 45px;">
+                            <div class="id-wrap site userInfo"> 
+                                <label for="">国家/地区</label>
+                                <div id="defCountry">中国</div>
+                                <i  class="iconfont icon-xuanzeqizhankai"></i>
+                                <div id="selectWrap">
+                                    <div id="searchCountry" class="search-country-wrap">
+                                        <div class="search-country-content">
+                                            <div class="search-icon">
+                                                <i class="iconfont icon-sousuo"></i>
+                                            </div>
+                                            <div class="search-input">
+                                                <input type="text" placeholder="搜索国家/地区名称">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="selectCountry">
+                                        <ul>
+                                            <li class="title-code">A</li>
+                                            <li>阿富汗</li>
+                                            <li>安道尔</li>
+                                            <li class="title-code">B</li>
+                                            <li>巴基斯坦</li>
+                                            <li>巴拿马</li>
+                                            <li class="title-code">C</li>
+                                            <li>朝鲜</li>
+                                            <li class="title-code">D</li>
+                                            <li>丹麦</li>
+                                            <li class="title-code">G</li>
+                                            <li>冈比亚</li>
+                                            <li class="title-code">H</li>
+                                            <li>海地</li>
+                                            <li class="title-code">Z</li>
+                                            <li>中国</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="password-wrap userInfo user">
+                                <label for="emil">邮箱</label>
+                                <input id="emil" type="text">
+                            </div>
+                            <div class="agreement-wrap">
+                                <div><input type="checkbox">已阅读并同意小米帐号</div>
+                                <div><a href="">用户协议</a>和<a href="">隐私政策</a></div>
+                            </div>
+                            <button id="registerBtn">注册</button>
+                            <div class="action-wrap">
+                                <!-- <div><a href="">忘记密码?</a></div> -->
+                                <div><a href="">用手机号码注册</a></div>
+                            </div>
+                            <div class="other-title">其他方式登录</div>
+                            <div class="other-logo-wrap">
+                                <a href=""><i class="other-font iconfont-color icon-zhifubao"></i></a>
+                                <a href=""><i class="other-font iconfont-color icon-weixin1"></i></a>
+                                <a href=""><i class="other-font iconfont-color icon-QQ"></i></a>
+                                <a href=""><i class="other-font iconfont-color icon-weibo"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                
+                <!-- </form> -->
+            </div>
+        </div>
+    </div>
+    <script src="../static/js/login.js"></script>
+    <script src="../Util.js"></script>
+    <script>
+        $(function(){
+            $('#submitBtn').click(function(){
+                var userId = $('#userId').val();
+                var userPassword = $('#userPassword').val();
+                if(userId == ''){
+                    alert('请输入用户名');
+                    return false;
+                }
+                if(userPassword == ''){
+                    alert('请输入密码');
+                    return false;
+                }
+                $.ajax({
+                    url: 'http://127.0.0.1:3000/user/Login',
+                    type: 'POST',
+                    data: {
+                        name: userId,
+                        password: userPassword
+                    },
+                    success: function(data){
+                        console.log(data);
+                        if(data.msg == 'success'){
+                           setTimeout(function(){
+                                window.location.href = './index.html';
+                            },1000);
+                        }else{
+                            alert('用户名或密码错误');
+                        }
+                    }
+                })
+            })
+            $('#registerBtn').click(function(){
+                location.href = 'register.php';
+            })
+        })      
+    </script>
+</body>
+</html>

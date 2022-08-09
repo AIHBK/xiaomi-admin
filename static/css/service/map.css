@@ -1,0 +1,19 @@
+.content-img{
+    position: relative;
+}
+.content-img .link{
+    width: 230px;
+    font-size: 16px;
+    position: absolute;
+    left: 50%;
+    bottom: 55px;
+    margin-left: -108px;
+    color: #ff6700;
+    display: flex;
+    justify-content: space-between;
+}
+#map {
+    width:600px; 
+    height: 600px;
+    font-size: 16px;
+ }  

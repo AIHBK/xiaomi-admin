@@ -1,0 +1,106 @@
+.middle-content {
+    background-color: #f5f5f5;
+}
+.self-service-wrap {
+    margin: 0 auto;
+    padding: 50px 0;
+    text-align: center; 
+    font-size: 0;
+}
+.content-img{
+    background-color: #f5f5f5;
+}
+.self-service-wrap h1{
+   margin: 0 0 30px 0;
+   color: #666;
+   font-size: 30px;
+   font-weight: 400;
+}
+.self-service-wrap .content-wrap{
+    width: 100%;
+    padding: 30px 13px;
+    text-align: center;
+    background-color: #fff;
+    font-size: 16PX;
+    position: relative;
+}
+.self-service-wrap .content-wrap .content-ul{
+    width: 80%;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+}
+.self-service-wrap .content-wrap .item-li{
+    height: 160px;
+    margin-top: 30PX;
+    margin-bottom: 20px;
+    margin-left: 100px;
+    display: inline-block;
+    position: relative;
+}
+.self-service-wrap .content-wrap .item-li div{
+    width: 100px;
+    overflow: hidden;
+}
+
+.self-service-wrap .content-wrap p{
+    margin-top: 30px;
+    font-size: 13px;
+    
+}
+.self-service-wrap .content-wrap .item-li:nth-of-type(2) img{
+    position: relative;
+    left: -99px;
+}
+.self-service-wrap .content-wrap .item-li:last-child img{
+    position: relative;
+    left: -200px;
+}
+.self-service-wrap .content-bottom{
+    width: 80%;
+    height: 50px;
+    border-top: 1px solid #f5f5f5;
+    margin: 0 auto;
+    padding: 20px 0;
+    font-size: 14px;
+}
+
+
+.content-res{
+    display: flex;
+    justify-content: space-between;
+}
+.self-service-wrap .content-wrap .item-ul{
+    display: inline-block;
+    text-align: left;
+    vertical-align: top;
+}
+.self-service-wrap .content-wrap .item-ul li{
+    width: 200px;
+    height: 30px; 
+    margin-left: 20px;
+    padding: 15px 0;
+    line-height: 30px;
+    color: #757575;
+}
+.self-service-wrap .content-wrap .item-ul li:hover{
+    color: #ff6700;
+}
+.self-service-wrap .content-bottom {
+    width: 100%;
+    height: 80px;
+    margin: 0 0;
+    padding: 50px 15px;
+    background-color: #fff;
+    font-size: 16px;
+    text-align: left; 
+}
+.self-service-wrap .content-bottom p{
+    padding: 10px 0;
+    padding-left: 30px;
+}
+.self-service-wrap .content-bottom span{
+    color: #ff6700;
+}

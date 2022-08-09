@@ -1,0 +1,402 @@
+
+#loginWrap{
+    min-width: 1000px;
+    min-height: 750px;
+    height: 753px;
+}
+.login-left-wrap{
+    width: 20%;
+    height: 100%;
+}
+.login-left-wrap div{
+    width: 100%;
+    height: 100%;
+    background-image: url(https://cdn.web-global.fds.api.mi-img.com/mcfe--mi-account/static/static/media/banner.5b1efcd8.jpg);
+    background-size: 100% 100%;
+}
+.container{
+    float: left;
+}
+
+.login-right-wrap{
+    width: 80%;
+    height: 100px;
+    background-color: rgb(254, 254, 254);
+}
+.login-right-wrap .login-top-wrap{
+    width: 100%;
+    margin-top: 20px;
+}
+.logo-wrap{
+    margin-left: 15px;
+    display: inline-block;
+}
+
+.logo-wrap div{
+    font-size: 26px;
+    position: relative;
+    top: -13px;
+    display: inline-block;
+    font-weight: 400;
+}
+.login-right-wrap .logo-wrap img{
+    width: 40px;
+    height: 40px;
+}
+.login-right-wrap .login-top-wrap .user-ul{
+    width: 340px;
+    height: 30px;
+    margin-top: 7px;
+    float: right;
+    line-height: 30px;
+    /* border: 1px solid; */
+    font-size: 14px;
+    color: #838383;
+    
+    
+}
+.login-right-wrap .user-ul li{
+    margin-left: 15px;
+    float: left;
+    
+}
+.login-right-wrap .user-ul li span{
+    width: 1px;
+    height: 10px;
+    border-left: 1px solid #ddd;
+}
+
+.login-middle-wrap{
+    width: 350px;
+    height: 450px;
+    min-width: 350px;
+    margin: 50px auto;
+    padding: 40px 45px;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px 0 hsl(0deg 0% 64% / 10%);
+    background-color: #fff;
+    text-align: center;
+    position: relative;
+}
+.login-middle-wrap .toggle-wrap{
+    width: 350px;
+    height: 30px;
+    caret-color: transparent;
+}
+
+.login-middle-wrap .toggle-wrap div{
+    width: 50px;
+    height: 30px;
+    line-height: 30px;
+    margin-bottom: 2px;
+    float: left;
+}
+.toggle-wrap .input-btn{
+    width: 100%;
+    height: 100%;
+    border: none;
+    background-color: #fff;
+    font-size: 22px;
+    color: #000;
+    font-weight: 500;
+    cursor: pointer;
+} 
+.login-middle-wrap .toggle-wrap .qr-code{
+    width: 64px;
+    height: 64px;
+    line-height: 64px;
+    text-align: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #ff6700;
+    opacity: 0.6;
+}
+.login-middle-wrap .toggle-wrap .qr-code .popup{
+    width: 80px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 5px;
+    background-color: #ff6700;
+    display: block;
+    position: absolute;
+    left: -89px;
+    top: 10px;
+    color: #fff;
+    font-size: 14px;
+    display: none;
+}
+.login-middle-wrap .qr-code .popup-triangle{
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+    border-left-color: #ff6700;
+    border-right: none;
+    border-top-color: transparent;
+    border-bottom-color: transparent;
+    position: absolute;
+    right: 67px;
+    top: 15px;
+    transform: rotate(0deg);
+    display: none;
+}
+.login-middle-wrap .toggle-wrap .qr-code:hover{
+    opacity: 1;
+}
+.login-middle-wrap .toggle-wrap .qr-code:hover .popup{
+    display: block;
+}
+.login-middle-wrap .toggle-wrap .qr-code:hover .popup-triangle{
+    display: block;
+}
+.login-middle-wrap .toggle-wrap .triangle{
+    width: 0;
+    height: 0;
+    border: 47px solid transparent;
+    border-right-color: #fff;
+    border-left: none;
+    border-top-color: transparent;
+    border-bottom-color: transparent;
+    position: absolute;
+    right: 25px;
+    top: 2px;
+    transform: rotate(-45deg);
+    z-index: 1;
+}
+.icon-erweima1{
+    font-size: 60px;
+    color: #fff;
+    position: absolute;
+    left: 10px;
+}
+.login-middle-wrap .toggle-wrap div:last-child{
+    width: 50px;
+    height: 4px;
+    border-radius: 2px;
+    background-color: #ff6700;
+    clear: both;
+    position: relative;
+}
+
+.login-middle-wrap .log-wrap{
+    width: 350px;
+    padding-top: 20px;
+    float: left;
+    /* display: inline-block; */
+}
+.login-middle-wrap .userInfo{
+    height: 40px;
+    border-radius: 5px;
+    padding: 15px 20px 10px 20px;
+    background-color: #F9F9F9;
+    text-align: left;
+    cursor: pointer;
+    position: relative;
+}
+.login-middle-wrap .user{
+    cursor: auto;
+}
+.login-middle-wrap .userInfo label{
+    width: 250px;
+    color: #838383;
+    text-align: left;
+    position: relative;
+    top: 2px;
+    display: block;
+    z-index: 1;
+    cursor: auto;
+}
+.login-middle-wrap .userInfo input{
+    /* width: 100%; */
+    background-color: #F9F9F9;
+    border: none;
+    outline:none;
+    position: relative;
+}
+.log-wrap .site label{
+    position: relative;
+    top: -3px;
+    font-size: 12px;
+}
+#selectCountry{
+    width: 350px;
+    height: 280px;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    box-shadow: 0 3px 6px -4px rgb(0 0 0 / 12%), 0 6px 16px 0 rgb(0 0 0 / 8%), 0 9px 28px 8px rgb(0 0 0 / 5%);
+    background-color: #fff;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    z-index: 10;
+}
+#selectCountry li{
+    width: 100%;
+    height: 50px;
+    padding-left: 20px;
+    line-height: 50px;
+    color: #aaa;
+}
+#selectCountry li:hover{
+    background-color: #fff3e6;
+    color: #000;
+}
+#selectCountry .title-flag{
+    background-color: #fff3e6;
+
+}
+.icon-xuanzeqizhankai{
+    position: absolute;
+    top: 25px;
+    right: 20px;
+
+}
+#searchCountry{
+    width: 350px;
+    height: 70px;
+    box-shadow: 0 3px 6px -4px rgb(0 0 0 / 12%), 0 6px 16px 0 rgb(0 0 0 / 8%), 0 9px 28px 8px rgb(0 0 0 / 5%);
+    background-color: #fff;
+    position: absolute;
+    /* top: 65px; */
+    left: 0;
+    z-index: 10;
+}
+#selectWrap{
+    width: 350px;
+    height: 390px;
+    position: absolute;
+    top: 65px;
+    left: 0;
+    display: none;
+}
+#searchCountry .search-country-content{
+    width: 300px;
+    height: 50px;
+    margin: 10px auto;
+    line-height: 50px;
+    background-color: #F9F9F9;
+    border: 1px solid #F9F9F9;
+    border-radius: 5px;
+}
+#searchCountry .search-country-content .search-icon{
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    display: inline-block;
+}
+#searchCountry .search-country-content .search-input{
+    width: 195px;
+    display: inline-block;
+}
+#searchCountry .search-input input{
+    width: 100%;
+    height: 100%;   
+    font-size: 16px;
+    font-weight: 700;
+    color: #F9F9F9;
+}
+/* #searchCountry .search-country-content:hover
+{
+    border: 1px solid #ff6700;
+    background-color: #fff;
+    color: #F9F9F9;
+} */
+
+
+
+
+
+
+
+
+.login-middle-wrap .userInfo:focus{
+    border: 1px solid #ff6700;
+}
+.login-middle-wrap .password-wrap{
+    margin-top: 20px;
+}
+.login-middle-wrap .password-wrap input{
+    width: 250px;
+}
+.icon-mimayincang{
+    position: relative;
+    left: 31px;
+    top: -10px;
+    font-size: 20px;
+}
+.agreement-wrap{
+    width: 340px;
+    height: 25px;
+    line-height: 25px;
+    margin-top: 20px;
+    font-size: 14px;
+}
+.login-middle-wrap .agreement-wrap div{
+    float: left;
+    
+}
+.login-middle-wrap .agreement-wrap{
+    color: #838383;
+}
+.login-middle-wrap .agreement-wrap a{
+    margin: 0 5px;
+    color: #000;
+}
+.login-middle-wrap .agreement-wrap div input{
+    width: 19px;
+    height: 19px;
+    border: 1px solid #757575;
+    outline: none;
+    position: relative;
+    top: 4px;
+    margin-right: 3px;
+}
+.login-middle-wrap button{
+    width: 100%;
+    height: 59px;
+    margin-top: 20px;
+    border: 1px solid #ff6700;
+    border-radius: 5px;
+    background-color: #ff6700;
+    color: #fff;
+    font-size: 18px;
+    opacity: .4;
+
+}
+.log-signIn-wrap{
+    width: 750px;
+    margin-top: 10px;
+    text-align: left;
+    position: absolute;
+    
+}
+
+
+.action-wrap{
+    width: 100%;
+    height: 30px;
+    margin-top:10px;
+    font-size: 17px;
+    font-weight: 500;
+    color: #ff6700;
+}
+.action-wrap div:first-child{
+    float: left;
+}
+.action-wrap div:last-child{
+    float: right;
+}
+.login-middle-wrap .other-title{
+    color: #757575;
+    text-align: center;
+}
+.other-logo-wrap{
+    margin-top: 20px;
+    text-align: center;
+}
+.other-font{
+    margin: 0 10px;
+    font-size: 40px;
+}

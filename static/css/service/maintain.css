@@ -1,0 +1,31 @@
+#all-nav{
+    /* visibility: hidden; */
+    position: relative;
+}
+#all-nav .slider-nav-wrap{
+    display: none;
+}
+#all-nav :hover .slider-nav-wrap{
+    display: block;
+}
+.maintain-content-wrap{
+    width: 100%;
+    background-color: #fff;
+}
+.maintain-content-wrap .content-item-wrap{
+    height: 550px;
+}   
+.maintain-content-wrap .content-item-wrap .webfont{
+    font-family: F620b5;
+}
+.maintain-content-wrap .content-item-wrap h1{
+    font-size: 72px;
+    font-weight: 400;
+
+}
+.maintain-content-wrap .content-item-wrap .left-wrap{
+    width: 335px;
+
+}
+/* .maintain-content-wrap .content-item-wrap p{
+} */
